@@ -28,14 +28,19 @@ int main()
         while(input != (int)'\n')
         {
             std::cin >> input;
-            if (input == -1)
+            if (input == -2)
+                break;
+            else if ((input == -1)&&array.size()>=5)
             {
                 arrange(&array);
                 std::cout << "Output: " <<  array[4] << std::endl;
                 break;
             }
-            else if (input == -2)
-                break;
+            else if((input == -1)&&array.size()<5)
+            {
+                std::cout << "You should input more items into array.";
+                continue;
+            }
             else
                 array.push_back(input);
         }
